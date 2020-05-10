@@ -40,7 +40,7 @@ class PostsController(val mapper: ObjectMapper) {
         }
     }
 
-    @Throws(ConnectionError::class)
+    @Throws(ConnectionError::class, IOException::class, MalformedURLException::class)
     fun downloadAndSavePosts() {
         val url = URL(POST_PATH)
         with(url.openConnection() as HttpURLConnection) {
