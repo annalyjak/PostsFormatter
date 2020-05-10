@@ -1,4 +1,4 @@
-package com.alyjak.postsFormatter.storing
+package com.alyjak.postsFormatter.utils.storing
 
 import com.alyjak.postsFormatter.ERROR_FILES_CREATION_MESSAGE
 import com.alyjak.postsFormatter.FILE_EXTENSION
@@ -26,8 +26,7 @@ private fun createFilesDir() {
 }
 
 private fun createSingleFile(post: Post, mapper: ObjectMapper) {
-    val fileName = "$PATH_OUTPUT/${post.id}$FILE_EXTENSION"
+    val fileName = "$PATH_OUTPUT${File.separator}${post.id}$FILE_EXTENSION"
     val file = File(fileName)
-    // create a new file
     file.writeText(mapper.writeValueAsString(post))
 }

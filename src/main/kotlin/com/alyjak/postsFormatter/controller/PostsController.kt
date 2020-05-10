@@ -2,8 +2,8 @@ package com.alyjak.postsFormatter.controller
 
 import com.alyjak.postsFormatter.*
 import com.alyjak.postsFormatter.exceptions.ConnectionError
-import com.alyjak.postsFormatter.parsing.formatPosts
-import com.alyjak.postsFormatter.storing.storePosts
+import com.alyjak.postsFormatter.utils.parsing.formatPosts
+import com.alyjak.postsFormatter.utils.storing.storePosts
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -40,6 +40,7 @@ class PostsController(val mapper: ObjectMapper) {
         }
     }
 
+    @Throws(ConnectionError::class)
     fun downloadAndSavePosts() {
         val url = URL(POST_PATH)
         with(url.openConnection() as HttpURLConnection) {
@@ -49,7 +50,6 @@ class PostsController(val mapper: ObjectMapper) {
 
             if (responseCode == 200) {
                 val response: String = inputStream.bufferedReader().use(BufferedReader::readText)
-//                val mapper = jacksonObjectMapper()
                 val posts = formatPosts(response, mapper)
                 storePosts(posts, mapper)
             } else {

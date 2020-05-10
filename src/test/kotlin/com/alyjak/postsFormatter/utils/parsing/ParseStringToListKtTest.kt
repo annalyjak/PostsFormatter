@@ -1,4 +1,4 @@
-package com.alyjak.postsFormatter.parsing
+package com.alyjak.postsFormatter.utils.parsing
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper

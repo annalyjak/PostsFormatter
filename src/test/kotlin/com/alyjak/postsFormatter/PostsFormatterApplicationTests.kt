@@ -12,6 +12,7 @@ class PostsFormatterApplicationTests(@Autowired val controller: PostsController)
 	@Test
 	fun contextLoads() {
 		assertThat(controller).isNotNull
+		assertThat(controller.mapper).isNotNull
 	}
 
 }

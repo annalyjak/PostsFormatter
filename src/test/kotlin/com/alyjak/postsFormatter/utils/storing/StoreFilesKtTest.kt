@@ -1,4 +1,4 @@
-package com.alyjak.postsFormatter.storing
+package com.alyjak.postsFormatter.utils.storing
 
 import com.alyjak.postsFormatter.domain.Post
 import com.fasterxml.jackson.databind.ObjectMapper

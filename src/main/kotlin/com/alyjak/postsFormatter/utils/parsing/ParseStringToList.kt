@@ -1,4 +1,4 @@
-package com.alyjak.postsFormatter.parsing
+package com.alyjak.postsFormatter.utils.parsing
 
 import com.alyjak.postsFormatter.EMPTY_RESPONSE_MESSAGE
 import com.alyjak.postsFormatter.domain.Post
